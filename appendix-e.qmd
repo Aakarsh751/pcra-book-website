@@ -3,18 +3,12 @@ title: "Appendix E: Machine Learning"
 subtitle: "Regularization, Robust Regression, Classification, and Projection Pursuit"
 ---
 
-::: {.copyright-notice}
+::: {.callout-important appearance="minimal"}
 **Copyright Notice.** Planned for publication in 2026 by R. Douglas Martin, Thomas K. Philips, Bernd Scherer, and Kirk Li. All rights reserved. © Copyright 2025.
 :::
 
-::: {.pdf-callout}
-::: {.pdf-icon}
-&#128196;
-:::
-::: {.pdf-text}
-**Full appendix available as PDF.**
-[Download Appendix E — Machine Learning](Appendix%20E%20Machine%20Learning.pdf){target="_blank"}
-:::
+::: {.callout-note appearance="minimal"}
+&#128196; **Full appendix available as PDF.** [Download Appendix E — Machine Learning](Appendix%20E%20Machine%20Learning.pdf){target="_blank"}
 :::
 
 ## Overview
@@ -27,7 +21,7 @@ The appendix situates ML within the broader statistical culture debate identifie
 
 ## E.1 — Overview of Machine Learning
 
-::: {.section-list}
+::: {.callout-tip appearance="minimal"}
 **Topics covered:**
 
 - The two statistical cultures (Breiman 2001): model-based vs. algorithm-focused
@@ -49,7 +43,7 @@ Machine Learning, LLMs, and Generative AI are reshaping portfolio management. Th
 
 ### E.2.1 — Regularization
 
-::: {.section-list}
+::: {.callout-tip appearance="minimal"}
 **Topics covered:**
 
 - Motivation: bias-variance trade-off in high-dimensional regression
@@ -59,7 +53,7 @@ Machine Learning, LLMs, and Generative AI are reshaping portfolio management. Th
 
 ### E.2.2 — Ridge Regression
 
-::: {.section-list}
+::: {.callout-tip appearance="minimal"}
 **Topics covered:**
 
 - Ridge penalty: $\text{penalty} = \lambda \|\boldsymbol{\beta}\|_2^2$
@@ -73,7 +67,7 @@ Ridge regression replaces the possibly ill-conditioned $(\mathbf{X}^\prime\mathb
 
 ### E.2.3 — Lasso
 
-::: {.section-list}
+::: {.callout-tip appearance="minimal"}
 **Topics covered:**
 
 - Lasso penalty: $\text{penalty} = \lambda \|\boldsymbol{\beta}\|_1$
@@ -86,7 +80,7 @@ The $\ell_1$ penalty produces sparse solutions — many $\hat\beta_j = 0$ — ma
 
 ### E.2.4 — The Elastic Net
 
-::: {.section-list}
+::: {.callout-tip appearance="minimal"}
 **Topics covered:**
 
 - Combined penalty: $\lambda_1 \|\boldsymbol{\beta}\|_1 + \lambda_2 \|\boldsymbol{\beta}\|_2^2$
@@ -96,7 +90,7 @@ The $\ell_1$ penalty produces sparse solutions — many $\hat\beta_j = 0$ — ma
 
 ### E.2.5 — Cross-Validation
 
-::: {.section-list}
+::: {.callout-tip appearance="minimal"}
 **Topics covered:**
 
 - $k$-fold cross-validation for tuning $\lambda$
@@ -113,7 +107,7 @@ Standard $k$-fold CV shuffles observations randomly, which induces look-ahead bi
 
 ## E.3 — Robust Regularized Regression
 
-::: {.section-list}
+::: {.callout-tip appearance="minimal"}
 **Topics covered:**
 
 - Why OLS-based regularization fails in the presence of outliers
@@ -133,7 +127,7 @@ The Lasso and Elastic Net objectives can similarly be robustified by substitutin
 
 ## E.4 — Classification and Robust Logistic Regression
 
-::: {.section-list}
+::: {.callout-tip appearance="minimal"}
 **Topics covered:**
 
 - Binary classification problems in finance (e.g., regime detection, default prediction)
@@ -156,7 +150,7 @@ $\sum_i \bigl[y_i \log \hat{p}_i + (1-y_i)\log(1-\hat{p}_i)\bigr]$.
 
 ## E.5 — Projection Pursuit Regression and Neural Networks
 
-::: {.section-list}
+::: {.callout-tip appearance="minimal"}
 **Topics covered:**
 
 - Projection pursuit: fitting additive ridge functions $\sum_k g_k(\boldsymbol{\alpha}_k^\prime \mathbf{x})$

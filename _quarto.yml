@@ -30,20 +30,17 @@ website:
         href: about.qmd
 
   page-footer:
-    background: light
-    left: |
-      © 2025 R. Douglas Martin, Thomas K. Philips, Bernd Scherer, Kirk Li.
-      All rights reserved.
-    right: |
-      Built with [Quarto](https://quarto.org)
+    background: dark
+    foreground: light
+    left: "© 2025 Martin, Philips, Scherer & Li. All rights reserved."
+    right: "Built with [Quarto](https://quarto.org)"
 
   search: true
+  back-to-top-navigation: true
 
 format:
   html:
-    theme:
-      - cosmo
-      - styles.css
+    theme: lux
     toc: true
     toc-depth: 3
     toc-title: "On this page"
@@ -55,8 +52,7 @@ format:
     link-external-icon: true
     fig-cap-location: bottom
     fig-align: center
-    fig-responsive: true
-    code-fold: false
+    lightbox: true
 
 execute:
   freeze: auto

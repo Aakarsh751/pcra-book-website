@@ -3,18 +3,12 @@ title: "Appendix A: Mathematical Tools for PCRA"
 subtitle: "Vectors, Matrices, Functions, and Optimization"
 ---
 
-::: {.copyright-notice}
+::: {.callout-important appearance="minimal"}
 **Copyright Notice.** Planned for publication in 2026 by R. Douglas Martin, Thomas K. Philips, Bernd Scherer, and Kirk Li. All rights reserved. © Copyright 2025.
 :::
 
-::: {.pdf-callout}
-::: {.pdf-icon}
-&#128196;
-:::
-::: {.pdf-text}
-**Full appendix available as PDF.**
-[Download Appendix A — Mathematical Tools for PCRA](Appendix%20A%20Math%20for%20PCRA.pdf){target="_blank"}
-:::
+::: {.callout-note appearance="minimal"}
+&#128196; **Full appendix available as PDF.** [Download Appendix A — Mathematical Tools for PCRA](Appendix%20A%20Math%20for%20PCRA.pdf){target="_blank"}
 :::
 
 ## Overview
@@ -27,7 +21,7 @@ The appendix draws substantially on Gentle (2017) and Strang (2016) for matrix a
 
 ## A.1 — Vectors and Vector Spaces
 
-::: {.section-list}
+::: {.callout-tip appearance="minimal"}
 **Topics covered:**
 
 - Definition and arithmetic of vectors (addition, scalar multiplication, dot product)
@@ -52,7 +46,7 @@ Portfolio return is thus $R_P = \mathbf{w}^\prime \mathbf{r}$, and portfolio var
 
 ## A.2 — Matrices and Matrix Arithmetic
 
-::: {.section-list}
+::: {.callout-tip appearance="minimal"}
 **Topics covered:**
 
 - Basic definitions: rows, columns, rank
@@ -92,7 +86,7 @@ a key building block for robust multivariate estimators.
 
 ## A.3 — Some Results on Functions
 
-::: {.section-list}
+::: {.callout-tip appearance="minimal"}
 **Topics covered:**
 
 - Derivatives and the chain rule
@@ -108,7 +102,7 @@ a key building block for robust multivariate estimators.
 
 ## A.4 — Optimization
 
-::: {.section-list}
+::: {.callout-tip appearance="minimal"}
 **Topics covered:**
 
 - The general optimization problem: objective, constraints, feasible set

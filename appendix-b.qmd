@@ -3,18 +3,12 @@ title: "Appendix B: Probability & Statistics for PCRA"
 subtitle: "Distributions, Estimation, Least Squares, and Asymptotic Theory"
 ---
 
-::: {.copyright-notice}
+::: {.callout-important appearance="minimal"}
 **Copyright Notice.** Planned for publication in 2026 by R. Douglas Martin, Thomas K. Philips, Bernd Scherer, and Kirk Li. All rights reserved. © Copyright 2025.
 :::
 
-::: {.pdf-callout}
-::: {.pdf-icon}
-&#128196;
-:::
-::: {.pdf-text}
-**Full appendix available as PDF.**
-[Download Appendix B — Probability & Statistics for PCRA](Appendix%20B%20ProbStat%20for%20PCRA.pdf){target="_blank"}
-:::
+::: {.callout-note appearance="minimal"}
+&#128196; **Full appendix available as PDF.** [Download Appendix B — Probability & Statistics for PCRA](Appendix%20B%20ProbStat%20for%20PCRA.pdf){target="_blank"}
 :::
 
 ## Overview
@@ -25,7 +19,7 @@ This appendix assembles the probability and statistics results that underpin por
 
 ## B.1 — Location and Scale Distributions
 
-::: {.section-list}
+::: {.callout-tip appearance="minimal"}
 **Topics covered:**
 
 - General location-scale family: CDF $F\!\left(\tfrac{r-\mu}{s}\right)$ and density $\tfrac{1}{s}f\!\left(\tfrac{r-\mu}{s}\right)$
@@ -46,7 +40,7 @@ Heavy-tailed distributions such as the $t$ motivate the robust estimation method
 
 ## B.2 — Invariance Properties
 
-::: {.section-list}
+::: {.callout-tip appearance="minimal"}
 **Topics covered:**
 
 - Mean and standard deviation equivariance under affine transformation
@@ -62,7 +56,7 @@ Heavy-tailed distributions such as the $t$ motivate the robust estimation method
 
 ## B.4 — Estimator Bias, Variance, and Mean Squared Error
 
-::: {.section-list}
+::: {.callout-tip appearance="minimal"}
 **Topics covered:**
 
 - Unbiased vs. biased estimators
@@ -73,7 +67,7 @@ Heavy-tailed distributions such as the $t$ motivate the robust estimation method
 
 ## B.5 — Least Squares
 
-::: {.section-list}
+::: {.callout-tip appearance="minimal"}
 **Topics covered:**
 
 - Ordinary Least Squares (OLS): coefficient estimates, fitted values, residuals
@@ -99,7 +93,7 @@ OLS fit with residuals for a simple linear regression.
 
 ## B.6 — Minimum Mean Squared Error (MMSE) Predictors
 
-::: {.section-list}
+::: {.callout-tip appearance="minimal"}
 **Topics covered:**
 
 - MMSE predictors of a scalar random variable
@@ -116,7 +110,7 @@ OLS fit with residuals for a simple linear regression.
 
 ## B.8 — Maximum Likelihood Estimators
 
-::: {.section-list}
+::: {.callout-tip appearance="minimal"}
 **Topics covered:**
 
 - Location and scale MLEs
@@ -140,7 +134,7 @@ MLE $\rho$ (loss) and $\psi$ (score) functions for location-scale estimation.
 
 ## B.10 — Limit Theorems
 
-::: {.section-list}
+::: {.callout-tip appearance="minimal"}
 **Topics covered:**
 
 - Convergence of random variables: in probability, almost surely, in $L^p$
@@ -153,7 +147,7 @@ MLE $\rho$ (loss) and $\psi$ (score) functions for location-scale estimation.
 
 ## B.11 — Estimator Asymptotic Results
 
-::: {.section-list}
+::: {.callout-tip appearance="minimal"}
 **Topics covered:**
 
 - Consistent estimators
@@ -164,7 +158,7 @@ MLE $\rho$ (loss) and $\psi$ (score) functions for location-scale estimation.
 
 ## B.12 — Delta Methods
 
-::: {.section-list}
+::: {.callout-tip appearance="minimal"}
 **Topics covered:**
 
 - Univariate delta method: $\sqrt{n}(g(\hat\theta) - g(\theta)) \xrightarrow{d} \mathcal{N}(0,\, [g^\prime(\theta)]^2 \sigma^2)$

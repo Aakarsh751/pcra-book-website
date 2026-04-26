@@ -3,18 +3,12 @@ title: "Appendix C: Utility Theory"
 subtitle: "Investor Preferences, Risk Aversion, and Expected Utility Maximization"
 ---
 
-::: {.copyright-notice}
+::: {.callout-important appearance="minimal"}
 **Copyright Notice.** Planned for publication in 2026 by R. Douglas Martin, Thomas K. Philips, Bernd Scherer, and Kirk Li. All rights reserved. © Copyright 2025.
 :::
 
-::: {.pdf-callout}
-::: {.pdf-icon}
-&#128196;
-:::
-::: {.pdf-text}
-**Full appendix available as PDF.**
-[Download Appendix C — Utility Theory](Appendix%20C%20Utility%20Theory.pdf){target="_blank"}
-:::
+::: {.callout-note appearance="minimal"}
+&#128196; **Full appendix available as PDF.** [Download Appendix C — Utility Theory](Appendix%20C%20Utility%20Theory.pdf){target="_blank"}
 :::
 
 ## Overview
@@ -25,7 +19,7 @@ This appendix develops the theory of investor preferences and decision-making un
 
 ## C.1 — Investor Preferences and Utility Functions
 
-::: {.section-list}
+::: {.callout-tip appearance="minimal"}
 **Topics covered:**
 
 - The St. Petersburg paradox and Daniel Bernoulli's resolution via logarithmic utility
@@ -40,7 +34,7 @@ The **von Neumann–Morgenstern theorem** states that if an investor's preferenc
 
 ## C.2 — Concave Utility Functions and Risk Aversion
 
-::: {.section-list}
+::: {.callout-tip appearance="minimal"}
 **Topics covered:**
 
 - Concavity of $U$ as the formal definition of risk aversion
@@ -64,7 +58,7 @@ A concave utility function implies risk aversion: $U(\mathrm{E}[v]) > \mathrm{E}
 
 ## C.3 — Certainty Equivalent Value and the Risk Premium
 
-::: {.section-list}
+::: {.callout-tip appearance="minimal"}
 **Topics covered:**
 
 - Certainty equivalent $CE$: the certain wealth level that makes the investor indifferent to the lottery
@@ -84,7 +78,7 @@ Certainty equivalent $CE$ and risk premium $\pi = \mathrm{E}[v] - CE$.
 
 ## C.4 — Absolute and Relative Risk Aversion
 
-::: {.section-list}
+::: {.callout-tip appearance="minimal"}
 **Topics covered:**
 
 - Arrow–Pratt coefficient of **absolute risk aversion**: $A(v) = -U''(v)/U'(v)$
@@ -107,7 +101,7 @@ The Arrow–Pratt measures provide operational definitions of how risk aversion 
 
 ## C.5 — Expected Utility Maximization and Mean-Variance Optimization
 
-::: {.section-list}
+::: {.callout-tip appearance="minimal"}
 **Topics covered:**
 
 - Conditions under which EUM implies mean-variance optimization
@@ -122,7 +116,7 @@ When returns are normally distributed or when the utility function is quadratic,
 
 ## C.6 — Expected Quadratic Utility and QP Optimization
 
-::: {.section-list}
+::: {.callout-tip appearance="minimal"}
 **Topics covered:**
 
 - Quadratic utility $U(v) = v - \tfrac{b}{2}v^2$ and its expected value
@@ -134,7 +128,7 @@ When returns are normally distributed or when the utility function is quadratic,
 
 ## C.7 — Objections to Utility Theory
 
-::: {.section-list}
+::: {.callout-tip appearance="minimal"}
 **Topics covered:**
 
 - Allais paradox: systematic violations of the VNM independence axiom
@@ -147,7 +141,7 @@ When returns are normally distributed or when the utility function is quadratic,
 
 ## C.8 — Making Utility Theory Practical
 
-::: {.section-list}
+::: {.callout-tip appearance="minimal"}
 **Topics covered:**
 
 - Eliciting risk preferences from investors

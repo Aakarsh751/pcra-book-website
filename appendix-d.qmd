@@ -3,18 +3,12 @@ title: "Appendix D: Portfolio Theory"
 subtitle: "Mean-Variance Frontier, CAPM, APT, and Robust Estimation"
 ---
 
-::: {.copyright-notice}
+::: {.callout-important appearance="minimal"}
 **Copyright Notice.** Planned for publication in 2026 by R. Douglas Martin, Thomas K. Philips, Bernd Scherer, and Kirk Li. All rights reserved. © Copyright 2025.
 :::
 
-::: {.pdf-callout}
-::: {.pdf-icon}
-&#128196;
-:::
-::: {.pdf-text}
-**Full appendix available as PDF.**
-[Download Appendix D — Portfolio Theory](Appendix%20D%20Portfolio%20Theory.pdf){target="_blank"}
-:::
+::: {.callout-note appearance="minimal"}
+&#128196; **Full appendix available as PDF.** [Download Appendix D — Portfolio Theory](Appendix%20D%20Portfolio%20Theory.pdf){target="_blank"}
 :::
 
 ## Overview
@@ -25,7 +19,7 @@ This appendix derives the mathematical results underlying classical portfolio th
 
 ## D.1 — Minimum-Variance Frontier Mathematics
 
-::: {.section-list}
+::: {.callout-tip appearance="minimal"}
 **Topics covered:**
 
 - Derivation of the minimum-variance weight vector $\mathbf{w}_{\mathrm{mv}}$
@@ -49,7 +43,7 @@ The scalar $d = bc - a^2 > 0$ (with equality only when all expected returns are 
 
 ## D.2 — The Tangent Portfolio is the Market Portfolio Under the CAPM
 
-::: {.section-list}
+::: {.callout-tip appearance="minimal"}
 **Topics covered:**
 
 - Definition of the tangent portfolio: maximum Sharpe ratio portfolio
@@ -61,7 +55,7 @@ The scalar $d = bc - a^2 > 0$ (with equality only when all expected returns are 
 
 ## D.3 — Proof of the CAPM
 
-::: {.section-list}
+::: {.callout-tip appearance="minimal"}
 **Topics covered:**
 
 - CAPM assumptions: investors maximize mean-variance utility, homogeneous expectations, risk-free asset
@@ -81,7 +75,7 @@ The CAPM is derived by exploiting the fact that the market portfolio must lie on
 
 ## D.4 — Zero-Beta CAPM Derivation
 
-::: {.section-list}
+::: {.callout-tip appearance="minimal"}
 **Topics covered:**
 
 - The zero-beta portfolio $Z(P)$ of a frontier portfolio $P$: the unique frontier portfolio uncorrelated with $P$
@@ -99,7 +93,7 @@ Zero-beta CAPM: $Z(M)$ is the frontier portfolio uncorrelated with the market po
 
 ## D.5 — Zero-Covariance Frontier Portfolios
 
-::: {.section-list}
+::: {.callout-tip appearance="minimal"}
 **Topics covered:**
 
 - Characterization of all pairs of zero-covariance frontier portfolios
@@ -110,7 +104,7 @@ Zero-beta CAPM: $Z(M)$ is the frontier portfolio uncorrelated with the market po
 
 ## D.6 — Proof of the APT
 
-::: {.section-list}
+::: {.callout-tip appearance="minimal"}
 **Topics covered:**
 
 - Ross (1976) Arbitrage Pricing Theory: factor model structure and no-arbitrage pricing
@@ -136,7 +130,7 @@ where $\lambda_k$ is the risk premium of factor $k$. The APT requires no distrib
 
 ## D.7 — Robust Estimation Details
 
-::: {.section-list}
+::: {.callout-tip appearance="minimal"}
 **Topics covered:**
 
 - mOpt $\psi$ function formula: the bounded score function used in MM-regression
