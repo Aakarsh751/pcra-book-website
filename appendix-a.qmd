@@ -21,7 +21,7 @@ subtitle: "Vectors, Matrices, Functions, and Optimization"
 
 This appendix collects the mathematical tools that appear repeatedly in *Portfolio Construction and Risk Analysis*. The treatment assumes familiarity with calculus and introductory linear algebra; the goal is to refresh and extend that background to cover the specific techniques used in portfolio mathematics.
 
-The appendix draws substantially on @Gentle2017 and @Strang2016 for matrix algebra, and on @LuenbergerYe2008 for optimization.
+The appendix draws substantially on Gentle (2017) and Strang (2016) for matrix algebra, and on Luenberger & Ye (2008) for optimization.
 
 ---
 

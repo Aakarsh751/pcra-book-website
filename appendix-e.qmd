@@ -21,7 +21,7 @@ subtitle: "Regularization, Robust Regression, Classification, and Projection Pur
 
 This appendix introduces the machine learning methods most relevant to portfolio management: regularized regression, cross-validation for model selection, robust variants of these methods, logistic regression for classification, and projection pursuit / neural network foundations.
 
-The appendix situates ML within the broader statistical culture debate identified by @Breiman2001, who distinguishes data-driven models focused on goodness-of-fit from distribution-agnostic algorithms focused on predictive accuracy. Both cultures are represented in PCRA.
+The appendix situates ML within the broader statistical culture debate identified by Breiman (2001), who distinguishes data-driven models focused on goodness-of-fit from distribution-agnostic algorithms focused on predictive accuracy. Both cultures are represented in PCRA.
 
 ---
 
@@ -33,7 +33,7 @@ The appendix situates ML within the broader statistical culture debate identifie
 - The two statistical cultures (Breiman 2001): model-based vs. algorithm-focused
 - Supervised, unsupervised, and reinforcement learning
 - Large Language Models (LLMs) and Generative AI in the context of finance
-- Key references: @KellyXiu2023, @HastieTibshiraniFriedman2009, @GuKellyXiu2020
+- Key references: Kelly & Xiu (2023), Hastie, Tibshirani & Friedman (2009), Gu, Kelly & Xiu (2020)
 :::
 
 Machine Learning, LLMs, and Generative AI are reshaping portfolio management. This appendix focuses on the subset of ML methods with direct relevance to return forecasting, factor model estimation, and risk management:
