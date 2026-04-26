@@ -4,104 +4,177 @@ page-layout: full
 toc: false
 ---
 
-::: {.hero-block}
-# Portfolio Construction and Risk Analysis
+```{=html}
+<div class="hero-outer">
+  <div class="hero-inner">
 
-::: {.subtitle}
-A rigorous treatment of quantitative methods for investment management
-:::
+    <div class="hero-eyebrow">Online Appendices</div>
 
-::: {.authors}
-R. Douglas Martin &nbsp;·&nbsp; Thomas K. Philips &nbsp;·&nbsp; Bernd Scherer &nbsp;·&nbsp; Kirk Li
-:::
+    <h1 class="hero-title">Portfolio Construction<br>and <em>Risk Analysis</em></h1>
 
-::: {.publisher-badge}
-Springer &nbsp;|&nbsp; Planned Publication: 2026
-:::
-:::
+    <p class="hero-subtitle">
+      A rigorous treatment of quantitative methods for investment management —<br>
+      from classical theory to modern statistical methodology.
+    </p>
 
-::: {.copyright-notice}
-**Copyright Notice.** Material on this site is planned for publication in 2026 by R. Douglas Martin, Thomas K. Philips, Bernd Scherer, and Kirk Li. All rights reserved. © Copyright 2025.
-:::
+    <div class="hero-authors">
+      <span class="author-name">R. Douglas Martin</span> &ensp;&middot;&ensp;
+      <span class="author-name">Thomas K. Philips</span> &ensp;&middot;&ensp;
+      <span class="author-name">Bernd Scherer</span> &ensp;&middot;&ensp;
+      <span class="author-name">Kirk Li</span>
+    </div>
+
+    <div class="hero-meta">
+      <span class="hero-badge hero-badge-gold">&#9670; Springer &nbsp;|&nbsp; 2026</span>
+      <span class="hero-badge">5 Appendices</span>
+      <span class="hero-badge">© 2025 All Rights Reserved</span>
+    </div>
+
+  </div>
+</div>
+```
+
+```{=html}
+<div class="stat-row">
+  <div class="stat-box">
+    <span class="stat-number">5</span>
+    <span class="stat-label">Appendices</span>
+  </div>
+  <div class="stat-box">
+    <span class="stat-number">A–E</span>
+    <span class="stat-label">Coverage</span>
+  </div>
+  <div class="stat-box">
+    <span class="stat-number">13</span>
+    <span class="stat-label">Figures</span>
+  </div>
+  <div class="stat-box">
+    <span class="stat-number">2026</span>
+    <span class="stat-label">Publication</span>
+  </div>
+</div>
+```
 
 ## About the Book
 
-*Portfolio Construction and Risk Analysis* (PCRA) provides a comprehensive and rigorous account of the quantitative foundations of modern portfolio management. The book develops the mathematical, statistical, and computational tools needed to construct, evaluate, and risk-manage investment portfolios in a principled way.
+*Portfolio Construction and Risk Analysis* provides a comprehensive and rigorous treatment of the quantitative foundations of modern investment management. The book develops the mathematical, statistical, and computational tools needed to construct, evaluate, and risk-manage portfolios in a principled way.
 
-The text integrates classical theory — mean-variance optimization, the Capital Asset Pricing Model, the Arbitrage Pricing Theory — with modern statistical methodology including robust estimation, regularized regression, and machine learning. Throughout, the authors emphasize practical implementation alongside theoretical justification.
+The text integrates classical theory — mean-variance optimization, the Capital Asset Pricing Model, the Arbitrage Pricing Theory — with modern statistical methodology including robust estimation, regularized regression, and machine learning. Throughout, the authors balance theoretical rigor with practical implementation.
 
-## Online Appendices
+```{=html}
+<div class="section-rule"><span>Appendices</span></div>
+```
 
-This site hosts the five technical appendices to PCRA. Each appendix provides self-contained background material that underpins the methods and results developed in the main text. Full PDF downloads are available on each appendix page.
+## What's Inside
 
-::: {.appendix-grid}
+Each appendix provides self-contained background material that underpins the methods and results developed in the main text. Full PDF downloads are available on each appendix page.
 
-::: {.appendix-card}
-::: {.label}
-Appendix A
-:::
-### Mathematical Tools for PCRA
-Vectors and vector spaces, matrix algebra, eigendecompositions, convex analysis, and constrained optimization — the essential mathematical infrastructure for portfolio mathematics.
+```{=html}
+<div class="appendix-grid">
 
-[Read Appendix A](appendix-a.qmd){.btn-appendix}
-:::
+  <div class="appendix-card">
+    <div class="card-label">Appendix A</div>
+    <div class="card-title">Mathematical Tools for PCRA</div>
+    <p class="card-desc">
+      The essential mathematical infrastructure for portfolio analysis — from vector spaces and matrix algebra to eigendecompositions and constrained optimization.
+    </p>
+    <div class="card-topics">
+      <span class="topic-tag">Linear Algebra</span>
+      <span class="topic-tag">Eigenvalues</span>
+      <span class="topic-tag">Optimization</span>
+      <span class="topic-tag">SVD</span>
+    </div>
+    <a href="appendix-a.html" class="card-link">Read appendix</a>
+  </div>
 
-::: {.appendix-card}
-::: {.label}
-Appendix B
-:::
-### Probability & Statistics for PCRA
-Location-scale distributions, least squares (OLS, WLS, GLS), maximum likelihood estimation, asymptotic theory, delta methods, and the Fisher information framework.
+  <div class="appendix-card">
+    <div class="card-label">Appendix B</div>
+    <div class="card-title">Probability &amp; Statistics for PCRA</div>
+    <p class="card-desc">
+      Location-scale distributions, least squares estimation, maximum likelihood, asymptotic theory, and the Fisher information framework.
+    </p>
+    <div class="card-topics">
+      <span class="topic-tag">OLS / WLS / GLS</span>
+      <span class="topic-tag">MLE</span>
+      <span class="topic-tag">CLT</span>
+      <span class="topic-tag">Delta Method</span>
+    </div>
+    <a href="appendix-b.html" class="card-link">Read appendix</a>
+  </div>
 
-[Read Appendix B](appendix-b.qmd){.btn-appendix}
-:::
+  <div class="appendix-card">
+    <div class="card-label">Appendix C</div>
+    <div class="card-title">Utility Theory</div>
+    <p class="card-desc">
+      Expected utility maximization, concave utility and risk aversion, certainty equivalents, and the bridge to mean-variance optimization.
+    </p>
+    <div class="card-topics">
+      <span class="topic-tag">VNM Axioms</span>
+      <span class="topic-tag">Risk Aversion</span>
+      <span class="topic-tag">CARA / CRRA</span>
+      <span class="topic-tag">EUM</span>
+    </div>
+    <a href="appendix-c.html" class="card-link">Read appendix</a>
+  </div>
 
-::: {.appendix-card}
-::: {.label}
-Appendix C
-:::
-### Utility Theory
-Expected utility maximization, concave utility and risk aversion, certainty equivalents, absolute and relative risk aversion, and the relationship between expected utility and mean-variance optimization.
+  <div class="appendix-card">
+    <div class="card-label">Appendix D</div>
+    <div class="card-title">Portfolio Theory</div>
+    <p class="card-desc">
+      Minimum-variance frontier mathematics, CAPM proofs, zero-beta portfolios, the Arbitrage Pricing Theory, and robust estimation details.
+    </p>
+    <div class="card-topics">
+      <span class="topic-tag">Efficient Frontier</span>
+      <span class="topic-tag">CAPM</span>
+      <span class="topic-tag">APT</span>
+      <span class="topic-tag">Zero-Beta</span>
+    </div>
+    <a href="appendix-d.html" class="card-link">Read appendix</a>
+  </div>
 
-[Read Appendix C](appendix-c.qmd){.btn-appendix}
-:::
+  <div class="appendix-card">
+    <div class="card-label">Appendix E</div>
+    <div class="card-title">Machine Learning</div>
+    <p class="card-desc">
+      Regularized regression, cross-validation, robust ML methods, logistic regression, and projection pursuit — all in a financial context.
+    </p>
+    <div class="card-topics">
+      <span class="topic-tag">Ridge / Lasso</span>
+      <span class="topic-tag">Elastic Net</span>
+      <span class="topic-tag">Projection Pursuit</span>
+      <span class="topic-tag">Robust ML</span>
+    </div>
+    <a href="appendix-e.html" class="card-link">Read appendix</a>
+  </div>
 
-::: {.appendix-card}
-::: {.label}
-Appendix D
-:::
-### Portfolio Theory
-Minimum-variance frontier mathematics, the tangent portfolio, CAPM proofs, zero-beta portfolios, APT derivation, and robust estimation details.
+</div>
+```
 
-[Read Appendix D](appendix-d.qmd){.btn-appendix}
-:::
+```{=html}
+<div class="section-rule"><span>How to Use</span></div>
+```
 
-::: {.appendix-card}
-::: {.label}
-Appendix E
-:::
-### Machine Learning
-Supervised learning, regularization (Ridge, Lasso, Elastic Net), cross-validation, robust regularized regression, logistic regression, and projection pursuit / neural networks.
+## Reading Guide
 
-[Read Appendix E](appendix-e.qmd){.btn-appendix}
-:::
+Each appendix page provides a structured outline of topics, key equations and figures rendered inline, and a link to download the full PDF. The appendices are designed to be read alongside the main chapters of PCRA, or independently as reference material.
 
-:::
+| | Appendix | If you need… |
+|---|---|---|
+| **A** | Mathematical Tools | Linear algebra, matrix inverses, optimization |
+| **B** | Probability & Statistics | Distribution theory, regression, MLE, asymptotics |
+| **C** | Utility Theory | Decision under uncertainty, risk aversion |
+| **D** | Portfolio Theory | Frontier math, CAPM/APT derivations |
+| **E** | Machine Learning | Regularization, robust regression, projection pursuit |
 
----
+```{=html}
+<div class="section-rule"><span>Citation</span></div>
+```
 
-## How to Use This Site
+## Cite This Work
 
-Each appendix page provides:
-
-- A structured outline of topics covered
-- Key figures from the appendix rendered inline
-- A downloadable PDF of the full appendix
-
-The appendices are designed to be read alongside the main chapters of PCRA, or independently as reference material. Cross-references to specific sections of the main text appear throughout.
-
-## Citation
-
-If you use material from these appendices in your own work, please cite the book:
-
-> Martin, R. D., Philips, T. K., Scherer, B., and Li, K. (2026). *Portfolio Construction and Risk Analysis*. Springer. (In press.)
+```{=html}
+<div class="cite-block">
+Martin, R. D., Philips, T. K., Scherer, B., and Li, K. (2026).
+<em>Portfolio Construction and Risk Analysis</em>. Springer. (In press.)
+</div>
+```

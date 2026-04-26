@@ -3,14 +3,22 @@ project:
   output-dir: _site
 
 website:
-  title: "Portfolio Construction and Risk Analysis"
+  title: "PCRA"
   description: >
-    Online appendices for the forthcoming Springer textbook by
-    R. Douglas Martin, Thomas K. Philips, Bernd Scherer, and Kirk Li.
+    Online appendices for Portfolio Construction and Risk Analysis —
+    a forthcoming Springer textbook by Martin, Philips, Scherer & Li.
+
+  open-graph:
+    title: "Portfolio Construction and Risk Analysis"
+    description: >
+      Online appendices covering mathematical tools, probability & statistics,
+      utility theory, portfolio theory, and machine learning for investment management.
+    image: ""
 
   navbar:
-    background: dark
+    background: "#0d1b2a"
     foreground: light
+    title: "PCRA"
     left:
       - text: "Home"
         href: index.qmd
@@ -28,21 +36,26 @@ website:
             href: appendix-e.qmd
       - text: "About"
         href: about.qmd
+    right:
+      - icon: search
+        href: "#"
+        aria-label: Search
 
   page-footer:
-    background: light
-    left: |
-      © 2025 R. Douglas Martin, Thomas K. Philips, Bernd Scherer, Kirk Li.
-      All rights reserved.
-    right: |
-      Built with [Quarto](https://quarto.org)
+    background: "#0d1b2a"
+    foreground: light
+    left: "© 2025 Martin, Philips, Scherer & Li. All rights reserved."
+    right: "Built with [Quarto](https://quarto.org)"
 
-  search: true
+  search:
+    location: navbar
+    type: overlay
+
+  back-to-top-navigation: true
 
 format:
   html:
     theme:
-      - cosmo
       - styles.css
     toc: true
     toc-depth: 3
@@ -55,8 +68,12 @@ format:
     link-external-icon: true
     fig-cap-location: bottom
     fig-align: center
-    fig-responsive: true
-    code-fold: false
+    lightbox: true
+    include-in-header: _fonts.html
+    grid:
+      sidebar-width: 0px
+      body-width: 900px
+      margin-width: 250px
 
 execute:
   freeze: auto
