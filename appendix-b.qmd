@@ -13,178 +13,658 @@ subtitle: "Distributions, Estimation, Least Squares, and Asymptotic Theory"
 
 ## Overview
 
-This appendix assembles the probability and statistics results that underpin portfolio construction and risk management. It covers the distributional families used to model asset returns, the estimation methods used to calibrate those models, and the asymptotic theory needed to make inference about estimated quantities.
+This appendix contains a variety of probability and statistics results that are useful in the context of portfolio construction and risk management theory and methods.
 
 ---
 
 ## B.1 — Location and Scale Distributions
 
-::: {.callout-tip appearance="minimal"}
-**Topics covered:**
-
-- General location-scale family: CDF $F\!\left(\tfrac{r-\mu}{s}\right)$ and density $\tfrac{1}{s}f\!\left(\tfrac{r-\mu}{s}\right)$
-- Normal distribution
-- Student's $t$-distribution (including Cauchy as special case)
-- Laplacian (two-sided exponential) distribution
-:::
-
-The **location-scale family** provides a unified framework for modeling asset returns. The normal distribution is the canonical member, but financial returns exhibit heavier tails, motivating the $t$-distribution with $\nu$ degrees of freedom:
+Let $R$ be a random variable with location parameter $\mu$ and scale parameter $s>0$. The probability distribution function $F_{R}(r)$ and density function $f_{R}(r)$ have the forms
 
 $$
-f_R(r) = \frac{\Gamma\!\left(\tfrac{\nu+1}{2}\right)}{\Gamma\!\left(\tfrac{\nu}{2}\right)\sqrt{\pi\nu\tau^2}} \left(1 + \frac{1}{\nu}\frac{(r-\mu)^2}{\tau^2}\right)^{-\frac{\nu+1}{2}}.
+F_{R}(r) = F\!\left(\frac{r-\mu}{s}\right), \qquad f_{R}(r) = \frac{1}{s}f\!\left(\frac{r-\mu}{s}\right).
 $$
 
-Heavy-tailed distributions such as the $t$ motivate the robust estimation methods developed throughout PCRA.
+Roughly speaking, the location parameter tells us where $f_{R}(r)$ is centered, while the scale parameter tells us how widely it spreads.
+
+The most famous member of the location-scale family is the **Normal distribution**:
+
+$$
+f_{R}(r)=\frac{1}{\sqrt{2\pi\sigma^{2}}}\exp\!\left(-\frac{(r-\mu)^{2}}{2\sigma^{2}}\right), \quad -\infty<r<\infty.
+$$
+
+The location parameter $\mu$ is the mean and the scale parameter $\sigma$ is the standard deviation.
+
+A closely related family is the **Student's $t$-distribution**:
+
+$$
+f_{R}(r)=\frac{\Gamma\!\left(\frac{\nu+1}{2}\right)}{\Gamma\!\left(\frac{\nu}{2}\right)\sqrt{\pi\nu\tau^{2}}}\left(1+\frac{1}{\nu}\frac{(r-\mu)^{2}}{\tau^{2}}\right)^{-\frac{\nu+1}{2}}, \quad -\infty<r<\infty
+$$
+
+with location parameter $\mu$ and scale parameter $\tau$. For $\nu>1$ the mean is $\mu$, and for $\nu>2$ the variance is $\tau^{2}\cdot\tfrac{\nu}{\nu-2}$. When $\nu=1$ the distribution is a **Cauchy distribution** whose mean is undefined. Heavy-tailed distributions such as the $t$ motivate the robust estimation methods developed throughout PCRA.
+
+A less well-known but important member of the location-scale family is the **Laplacian** (two-sided exponential) distribution:
+
+$$
+f_{R}(r)=\frac{1}{2b}\exp\!\left(-\frac{|r-\mu|}{b}\right), \quad -\infty<r<\infty.
+$$
+
+The location parameter $\mu$ is the mean, and the scale parameter $b$ is $\tfrac{1}{\sqrt{2}}$ times its standard deviation.
 
 ---
 
-## B.2 — Invariance Properties
+## B.2 — Invariance Properties of Location, Scale, Covariance and Correlation
 
-::: {.callout-tip appearance="minimal"}
-**Topics covered:**
+### Mean and Standard Deviation Equivariance
 
-- Mean and standard deviation equivariance under affine transformation
-- Covariance translation invariance and scale equivariance
-- Correlation invariance under affine transformation
-:::
+Let $\mu_{R}=\mathrm{E}[R]$ and $\sigma_{R}=\sqrt{\mathrm{var}(R)}$, and let $\dot{R}=a+bR$ be an **affine transformation** of $R$ with $b>0$. Then
+
+$$
+\mu_{\dot{R}} = a+b\mu_{R}, \qquad \sigma_{\dot{R}} = b\cdot\sigma_{R}.
+$$
+
+The mean is **location and scale equivariant**; the standard deviation is **location invariant and scale equivariant**.
+
+### Covariance Translation Invariance and Scale Equivariance
+
+Suppose $\dot{r}_{i}=a+b\cdot r_{i}$ and $\dot{r}_{j}=c+d\cdot r_{j}$. Then
+
+$$
+\mathrm{cov}(\dot{r}_{i},\,\dot{r}_{j})=b\cdot d\cdot\mathrm{cov}(r_{i},\,r_{j}).
+$$
+
+Covariances are **translation invariant** and **scale equivariant**.
+
+### Correlation Affine Invariance
+
+Since $\mathrm{cor}(r_{i},r_{j})=\mathrm{cov}(r_{i},r_{j})/(\sigma_{r_{i}}\sigma_{r_{j}})$, it follows that
+
+$$
+\mathrm{cor}(\dot{r}_{i},\,\dot{r}_{j})=\mathrm{cor}(r_{i},\,r_{j}).
+$$
+
+**Correlations are affine invariant.** The above equivariance and invariance properties also hold for the corresponding sample-based estimators.
 
 ---
 
 ## B.3 — Linearity of Covariances
 
+Suppose $z=\sum_{i=1}^{n}a_{i}y_{i}$. Then
+
+$$
+\begin{aligned}
+\mathrm{cov}(x,\,z) &= \mathrm{cov}\!\left(x,\,\sum_{i=1}^{n}a_{i}y_{i}\right) = \sum_{i=1}^{n}a_{i}\,\mathrm{cov}(x,\,y_{i}) = \mathbf{a}^{\prime}\mathrm{cov}(x,\,\mathbf{y})
+\end{aligned}
+$$
+
+where $\mathrm{cov}(x,\mathbf{y})$ is an $n$-dimensional column vector with $i^{th}$ element $\mathrm{cov}(x,y_{i})$.
+
+A leading application is the covariance between the return of a portfolio $r_{P}=\sum_{i=1}^{n}w_{i}r_{i}=\mathbf{w}^{\prime}\mathbf{r}$ and its $i^{th}$ constituent asset:
+
+$$
+\mathrm{cov}(r_{i},\,r_{P})=\sum_{j=1}^{n}w_{j}\,\mathrm{cov}(r_{i},\,r_{j})=\mathbf{w}^{\prime}\mathrm{cov}(r_{i},\,\mathbf{r}).
+$$
+
 ---
 
-## B.4 — Estimator Bias, Variance, and Mean Squared Error
+## B.4 — Estimator Bias, Variance and Mean Squared Error
 
-::: {.callout-tip appearance="minimal"}
-**Topics covered:**
+### Unbiased versus Biased Estimators
 
-- Unbiased vs. biased estimators
-- Estimator mean squared error (MSE): $\mathrm{MSE}(\hat\theta) = \mathrm{Var}(\hat\theta) + \mathrm{Bias}^2(\hat\theta)$
-:::
+An **unbiased** estimator $\hat{\theta}_{n}$ satisfies $\mathrm{E}[\hat{\theta}_{n}]=\theta$ for all $\theta\in\Theta$. When this fails, the estimator is **biased** with bias
+
+$$
+B(\hat{\theta}_{n})=\mathrm{E}[\hat{\theta}_{n}]-\theta.
+$$
+
+The sample mean $\bar{r}=\tfrac{1}{n}\sum_{t=1}^{n}r_{t}$ is unbiased for $\mu$. The sample variance with divisor $n$,
+
+$$
+\hat{\sigma}_{n}^{2}=\frac{1}{n}\sum_{t=1}^{n}(r_{t}-\bar{r})^{2},
+$$
+
+has a negative bias $B(\hat{\sigma}_{n}^{2})=-\tfrac{1}{n}\sigma^{2}$, while the unbiased version uses divisor $n-1$:
+
+$$
+S_{n}^{2}=\frac{1}{n-1}\sum_{t=1}^{n}(r_{t}-\bar{r})^{2}, \qquad \mathrm{E}[S_{n}^{2}]=\sigma^{2}.
+$$
+
+For normally distributed returns, Holtzman (1950) and Ahn and Fessler (2003) show that an almost perfectly unbiased estimate of $\sigma$ for $n\geqslant4$ is
+
+$$
+\hat{\sigma}_{n}=\sqrt{\frac{1}{n-1.5}\sum_{t=1}^{n}(r_{t}-\bar{r})^{2}}.
+$$
+
+If exact unbiasedness is not achievable for every finite $n$, one should use a **consistent** estimator whose bias goes to zero as $n\to\infty$.
+
+### Estimator Mean Squared Error
+
+The **mean squared error** (MSE) of $\hat{\theta}_{n}$ is
+
+$$
+\mathrm{MSE}(\hat{\theta}_{n})=\mathrm{E}\!\left[(\hat{\theta}_{n}-\theta)^{2}\right]=\mathrm{var}(\hat{\theta}_{n})+B^{2}(\hat{\theta}_{n}).
+$$
+
+For a vector parameter $\hat{\boldsymbol{\Theta}}_{n}$:
+
+$$
+\mathrm{MSE}(\hat{\boldsymbol{\Theta}}_{n})=\mathrm{E}\!\left[\|\hat{\boldsymbol{\Theta}}_{n}-\boldsymbol{\Theta}\|^{2}\right]=\sum_{i}\mathrm{var}(\hat{\boldsymbol{\Theta}}_{i,n})+B^{2}(\boldsymbol{\Theta}_{i}).
+$$
+
+When estimating a vector of parameters, it is sometimes possible to admit a small bias in exchange for a much lower variance (Stein 1956), so that the Minimum MSE estimator is slightly biased.
 
 ---
 
 ## B.5 — Least Squares
 
-::: {.callout-tip appearance="minimal"}
-**Topics covered:**
+### Ordinary Least Squares
 
-- Ordinary Least Squares (OLS): coefficient estimates, fitted values, residuals
-- Weighted Least Squares (WLS)
-- Generalized Least Squares (GLS)
-- Inference under normally distributed errors: $F$-tests, $t$-tests, confidence intervals
-- The Gauss–Markov Theorem: BLUE property of OLS
-:::
+Given observations $y_{i},\ x_{i1},\ldots,x_{im}$, $i=1,\ldots,n$, the **standard linear regression model** is
 
-The OLS estimator in the model $\mathbf{y} = \mathbf{X}\boldsymbol{\beta} + \boldsymbol{\varepsilon}$ is
 $$
-\hat{\boldsymbol{\beta}}_{\mathrm{OLS}} = (\mathbf{X}^\prime \mathbf{X})^{-1} \mathbf{X}^\prime \mathbf{y},
+y_{i}=\beta_{0}+\sum_{j=1}^{m}\beta_{j}x_{ij}+\epsilon_{i}.
 $$
-with fitted values $\hat{\mathbf{y}} = \mathbf{X}\hat{\boldsymbol{\beta}}_{\mathrm{OLS}} = \mathbf{H}\mathbf{y}$ where $\mathbf{H} = \mathbf{X}(\mathbf{X}^\prime\mathbf{X})^{-1}\mathbf{X}^\prime$ is the hat matrix.
+
+In matrix-vector notation with $\mathbf{X}=[\mathbf{1}_{n},\mathbf{x}_{1},\ldots,\mathbf{x}_{m}]$:
+
+$$
+\mathbf{y}=\mathbf{X}\boldsymbol{\beta}+\boldsymbol{\varepsilon}.
+$$
+
+The **Ordinary Least Squares** (OLS) estimates minimize the sum of squared errors:
+
+$$
+\hat{\boldsymbol{\beta}}_{OLS}=\underset{\boldsymbol{\beta}}{\mathrm{argmin}}\,(\mathbf{y}-\mathbf{X}\boldsymbol{\beta})^{\prime}(\mathbf{y}-\mathbf{X}\boldsymbol{\beta}).
+$$
+
+Setting the gradient to zero gives the **normal equations** $\mathbf{X}^{\prime}\hat{\boldsymbol{\varepsilon}}=\mathbf{0}$, and if $\mathbf{X}$ has full rank:
+
+$$
+\hat{\boldsymbol{\beta}}_{OLS}=(\mathbf{X}^{\prime}\mathbf{X})^{-1}\mathbf{X}^{\prime}\mathbf{y}.
+$$
+
+The OLS fit $\hat{\mathbf{y}}=\mathbf{X}\hat{\boldsymbol{\beta}}_{OLS}=\mathbf{H}\mathbf{y}$ uses the **Hat matrix** (or Projection matrix)
+
+$$
+\mathbf{H}=\mathbf{X}(\mathbf{X}^{\prime}\mathbf{X})^{-1}\mathbf{X}^{\prime},
+$$
+
+which is symmetric and idempotent ($\mathbf{H}^{\prime}=\mathbf{H}$, $\mathbf{H}^{2}=\mathbf{H}$). The residuals are
+
+$$
+\hat{\boldsymbol{\varepsilon}}=(\mathbf{I}-\mathbf{H})\mathbf{y}=\mathbf{M}\mathbf{y}
+$$
+
+where $\mathbf{M}=\mathbf{I}-\mathbf{H}$ is the **Annihilator matrix**. The OLS fit is a projection — it projects $\mathbf{y}$ onto the column space of $\mathbf{X}$, so residuals are orthogonal to all columns of $\mathbf{X}$.
 
 ::: {#fig-ols layout-ncol=1}
-![OLS fitted values and residuals for a simple regression. The fitted line minimizes the sum of squared vertical distances. Points far from the line (large residuals) have an outsized influence on the OLS estimate — a key motivation for robust regression.](0C__Users_tkpme_Dropbox_BookPCRA_Springer_Produ_____Stat_for_PCRM_Plots_OLS_Fit_Plus_Residual.png){fig-alt="OLS fit with residual plot"}
+![OLS Orthogonal Projection and the Fit-plus-Residuals Decomposition. The OLS fit $\hat{\mathbf{y}}$ lies in the column space of $\mathbf{X}$, and the residuals $\hat{\boldsymbol{\varepsilon}}$ are orthogonal to it. Points far from the line (large residuals) have an outsized influence on the OLS estimate — a key motivation for robust regression.](0C__Users_tkpme_Dropbox_BookPCRA_Springer_Produ_____Stat_for_PCRM_Plots_OLS_Fit_Plus_Residual.png){fig-alt="OLS fit with residual plot"}
 
-OLS fit with residuals for a simple linear regression.
+OLS Orthogonal Projection and the Fit-plus-Residuals Decomposition.
 :::
+
+Even though OLS has an elegant theoretical foundation, it is **not robust to outliers**: the OLS coefficients are linear in $\mathbf{y}$, so even a single outlier can make the bias in $\hat{\boldsymbol{\beta}}_{OLS}$ arbitrarily large.
+
+### Weighted Least Squares
+
+Let $\mathbf{W}$ be a diagonal weight matrix with $\mathbf{W}_{ii}\geqslant0$. The **Weighted Least Squares** (WLS) fit minimizes
+
+$$
+\hat{\boldsymbol{\beta}}_{WLS}=\underset{\boldsymbol{\beta}}{\mathrm{argmin}}\,(\mathbf{y}-\mathbf{X}\boldsymbol{\beta})^{\prime}\mathbf{W}(\mathbf{y}-\mathbf{X}\boldsymbol{\beta}),
+$$
+
+with solution (when $\mathbf{X}^{\prime}\mathbf{W}\mathbf{X}$ is invertible):
+
+$$
+\hat{\boldsymbol{\beta}}_{WLS}=(\mathbf{X}^{\prime}\mathbf{W}\mathbf{X})^{-1}\mathbf{X}^{\prime}\mathbf{W}\mathbf{y}.
+$$
+
+WLS is equivalent to OLS applied to scaled response and predictor variables $(\mathbf{V}\mathbf{y},\,\mathbf{V}\mathbf{X})$ where $\mathbf{V}^{\prime}\mathbf{V}=\mathbf{W}$. If errors are heteroskedastic with known variances $\sigma_{i}^{2}$, the natural choice is $w_{ii}=1/\sigma_{i}^{2}$, yielding the MLE under normality. Robust regression methods are at heart specialized WLS variants that automate the identification of outliers using data-dependent weights
+
+$$
+w_{ii}=\frac{\psi(\hat{\epsilon}_{i})}{\hat{\epsilon}_{i}},
+$$
+
+where $\psi(\cdot)$ is a nonlinear transformation that systematically underweights outliers.
+
+### Generalized Least Squares
+
+**Generalized Least Squares** (GLS) handles correlated errors with known covariance matrix $\mathbf{C}$:
+
+$$
+\hat{\boldsymbol{\beta}}_{GLS}=\underset{\boldsymbol{\beta}}{\mathrm{argmin}}\,(\mathbf{y}-\mathbf{X}\boldsymbol{\beta})^{\prime}\mathbf{C}^{-1}(\mathbf{y}-\mathbf{X}\boldsymbol{\beta}).
+$$
+
+When $\mathbf{X}^{\prime}\mathbf{C}^{-1}\mathbf{X}$ is invertible:
+
+$$
+\hat{\boldsymbol{\beta}}_{GLS}=(\mathbf{X}^{\prime}\mathbf{C}^{-1}\mathbf{X})^{-1}\mathbf{X}^{\prime}\mathbf{C}^{-1}\mathbf{y}.
+$$
+
+Since $\mathbf{C}^{-1}=\boldsymbol{\Omega}^{\prime}\boldsymbol{\Omega}$, GLS is equivalent to OLS applied to $(\boldsymbol{\Omega}\mathbf{y},\,\boldsymbol{\Omega}\mathbf{X})$, simultaneously scaling and decorrelating the errors. Like OLS, GLS is not robust to outliers. Furthermore, $\mathbf{C}$ is usually unknown and must be estimated from data, which erodes much of its theoretical advantage.
+
+### Least Squares Inference with Normally Distributed Errors
+
+If $\boldsymbol{\varepsilon}|\mathbf{X}\sim\mathrm{MVN}(0,\sigma^{2}\mathbf{I}_{n})$, then
+
+$$
+\hat{\boldsymbol{\beta}}_{OLS}-\boldsymbol{\beta}=(\mathbf{X}^{\prime}\mathbf{X})^{-1}\mathbf{X}^{\prime}\boldsymbol{\varepsilon}\sim\mathrm{MVN}(0,\,\sigma^{2}(\mathbf{X}^{\prime}\mathbf{X})^{-1}).
+$$
+
+An unbiased estimate of $\sigma^{2}$ is $s^{2}=\hat{\boldsymbol{\varepsilon}}^{\prime}\hat{\boldsymbol{\varepsilon}}/(n-m-1)$, and the standard error of the $j^{th}$ coefficient is
+
+$$
+SE(\hat{\beta}_{j,OLS})=\sqrt{s^{2}\times((\mathbf{X}^{\prime}\mathbf{X})^{-1})_{j,j}}.
+$$
+
+To test $H_{0}:\beta_{j}=\overline{\beta_{j}}$, the **t-statistic**
+
+$$
+t_{j}=\frac{\hat{\beta}_{j,OLS}-\overline{\beta_{j}}}{SE(\hat{\beta}_{j,OLS})}
+$$
+
+has a $t$ distribution with $n-m-1$ degrees of freedom; reject $H_0$ if $|t_{j}|>t_{\alpha/2}(n-m-1)$.
+
+For the general linear hypothesis $H_{0}:\mathbf{A}\boldsymbol{\beta}=\mathbf{a}$ ($\mathbf{A}$ is $p\times(m+1)$ with rank $p$), the **F-statistic**
+
+$$
+F=\frac{(\mathbf{A}\hat{\boldsymbol{\beta}}_{OLS}-\mathbf{a})^{\prime}(\mathbf{A}(\mathbf{X}^{\prime}\mathbf{X})^{-1}\mathbf{A}^{\prime})^{-1}(\mathbf{A}\hat{\boldsymbol{\beta}}_{OLS}-\mathbf{a})}{p\cdot s^{2}}
+$$
+
+has an $F(p,\,n-m-1)$ distribution under $H_0$.
+
+### The Gauss-Markov Theorem
+
+Under (1) linearity $\mathbf{y}=\mathbf{X}\boldsymbol{\beta}+\boldsymbol{\varepsilon}$, (2) strict exogeneity $\mathrm{E}(\boldsymbol{\varepsilon}|\mathbf{X})=\mathbf{0}$, (3) full rank of $\mathbf{X}$, and (4) $\mathrm{E}(\boldsymbol{\varepsilon}\boldsymbol{\varepsilon}^{\prime}|\mathbf{X})=\sigma^{2}\mathbf{I}_{n}$, the celebrated **Gauss-Markov theorem** states that the OLS estimator is the **best linear unbiased estimator** (BLUE): its covariance matrix is not larger than that of any other unbiased linear estimator. GLS inherits the same BLUE property when assumption (4) is relaxed to allow a positive definite error covariance.
 
 ---
 
 ## B.6 — Minimum Mean Squared Error (MMSE) Predictors
 
-::: {.callout-tip appearance="minimal"}
-**Topics covered:**
+### MMSE Predictors of a Scalar Random Variable
 
-- MMSE predictors of a scalar random variable
-- Linear MMSE (LMMSE) predictors
-- Optimality and MSE of the LMMSE predictor
-- Conditional distribution of a multivariate normal
-:::
+We wish to predict a scalar $y$ using a vector of predictors $\mathbf{x}$ via $\hat{y}=g(\mathbf{x})$. The mean squared prediction error conditioned on $\mathbf{x}$ is
+
+$$
+\mathrm{MSE}_{\mathbf{x}}=\mathrm{E}_{y}[(y-g(\mathbf{x}))^{2}|\mathbf{x}].
+$$
+
+Differentiating with respect to $g(\mathbf{x})$ and setting to zero shows that the **Minimum Mean Squared Error (MMSE) predictor** is the conditional mean:
+
+$$
+g_{0}(\mathbf{x})=\mathrm{E}_{y}[y|\mathbf{x}].
+$$
+
+The conditional mean predictor minimizes the conditional MSE for every $\mathbf{x}$, and therefore also minimizes the unconditional MSE. Its prediction error is orthogonal to any function of $\mathbf{x}$:
+
+$$
+\mathrm{E}_{y,\mathbf{x}}[(y-g_{0}(\mathbf{x}))h(\mathbf{x})]=0 \quad \text{for any function } h.
+$$
+
+### Linear MMSE Predictors
+
+When $f_{y|\mathbf{x}}$ is unknown or non-linear, we restrict to affine predictors $\hat{y}=\alpha+\mathbf{x}^{\prime}\boldsymbol{\beta}$ and minimize $\mathrm{E}[(y-\alpha-\mathbf{x}^{\prime}\boldsymbol{\beta})^{2}]$. The **Linear MMSE (LMMSE)** predictor sets
+
+$$
+\boldsymbol{\beta}_{LMMSE}=\mathbf{C}^{-1}\boldsymbol{\sigma}, \qquad \alpha_{LMMSE}=\mathrm{E}[y]-\mathrm{E}[\mathbf{x}]^{\prime}\boldsymbol{\beta}_{LMMSE},
+$$
+
+where $\mathbf{C}=\mathrm{cov}(\mathbf{x},\mathbf{x})$ and $\boldsymbol{\sigma}=\mathrm{cov}(y,\mathbf{x})$. In the scalar case ($\mathbf{x}=x$):
+
+$$
+\hat{y}=\mathrm{E}[y]+\frac{\mathrm{cov}(x,y)}{\sigma_{x}^{2}}(x-\mathrm{E}[x]).
+$$
+
+The minimum MSE of the LMMSE predictor is
+
+$$
+\mathrm{MMSE}=\sigma_{y}^{2}-\boldsymbol{\sigma}^{\prime}\mathbf{C}^{-1}\boldsymbol{\sigma}=\sigma_{y}^{2}(1-R_{y,\mathbf{x}}^{2}),
+$$
+
+where $R_{y,\mathbf{x}}^{2}=\boldsymbol{\sigma}^{\prime}\mathbf{C}^{-1}\boldsymbol{\sigma}/\sigma_{y}^{2}$ is the fraction of variance of $y$ explained by $\mathbf{x}$.
+
+### Conditional Distribution of a Multivariate Normal
+
+Partition $\mathbf{x}=(\mathbf{x}_{1}^{\prime},\mathbf{x}_{2}^{\prime})^{\prime}$ with mean $\boldsymbol{\mu}=(\boldsymbol{\mu}_{1}^{\prime},\boldsymbol{\mu}_{2}^{\prime})^{\prime}$ and covariance
+
+$$
+\boldsymbol{\Sigma}=\begin{pmatrix}\boldsymbol{\Sigma}_{11} & \boldsymbol{\Sigma}_{12}\\ \boldsymbol{\Sigma}_{21} & \boldsymbol{\Sigma}_{22}\end{pmatrix}.
+$$
+
+When $\mathbf{x}\sim\mathrm{MVN}(\boldsymbol{\mu},\boldsymbol{\Sigma})$, the distribution of $\mathbf{x}_{2}$ conditioned on $\mathbf{x}_{1}$ is multivariate normal with
+
+$$
+\boldsymbol{\mu}_{2|1}=\boldsymbol{\mu}_{2}+\boldsymbol{\Sigma}_{21}\boldsymbol{\Sigma}_{11}^{-1}(\mathbf{x}_{1}-\boldsymbol{\mu}_{1}), \qquad \boldsymbol{\Sigma}_{2|1}=\boldsymbol{\Sigma}_{22}-\boldsymbol{\Sigma}_{21}\boldsymbol{\Sigma}_{11}^{-1}\boldsymbol{\Sigma}_{12}.
+$$
+
+The conditional mean formula $\boldsymbol{\mu}_{2|1}$ is also valid for all elliptical distributions with finite means (such as the $t$-distribution with 2 or more degrees of freedom).
 
 ---
 
 ## B.7 — Estimators via the Plug-In Principle
 
+The **plug-in principle** provides a non-parametric estimator of a parameter $\theta$ by substituting the empirical distribution function $F_{n}$ for the true unknown $F$. The true parameter can be written as
+
+$$
+\theta(F)=\int g(r;\,F)\,dF(r)
+$$
+
+and the plug-in estimator is obtained by replacing $F$ with $F_{n}$ (the discrete distribution assigning probability $1/n$ to each of $r_{1},\ldots,r_{n}$):
+
+$$
+\hat{\theta}=\theta(F_{n})=\frac{1}{n}\sum_{i=1}^{n}g(r_{i};\,F_{n}).
+$$
+
+Applying this to the mean functional $g(r;F)=r$ gives the sample mean $\hat{\mu}=\bar{r}$. Applying it to the variance functional $g(r;F)=(r-\mu(F))^{2}$ gives the sample variance $\hat{\sigma}^{2}=\tfrac{1}{n}\sum_{t=1}^{n}(r_{t}-\bar{r})^{2}$.
+
 ---
 
 ## B.8 — Maximum Likelihood Estimators
 
-::: {.callout-tip appearance="minimal"}
-**Topics covered:**
+### Location and Scale MLEs
 
-- Location and scale MLEs
-- Regression model MLEs
-- Covariance matrix MLEs
-:::
+Assume $N$ i.i.d. observations $\mathbf{r}=(r_{1},\ldots,r_{n})$ from a location-scale family. The **likelihood function** is
 
-Maximum likelihood estimation in location-scale models produces the score functions (derivatives of the log-likelihood) known as $\psi$ functions in robust statistics. The MLE under a normal model yields the sample mean and variance; under heavier-tailed models it yields M-estimators with bounded influence.
+$$
+L(\mu,s)=\prod_{i=1}^{N}\frac{1}{s}f\!\left(\frac{r_{i}-\mu}{s}\right),
+$$
+
+and the **log-likelihood** is
+
+$$
+l(\mu,s)=-N\ln(s)+\sum_{i=1}^{N}\ln f\!\left(\frac{r_{i}-\mu}{s}\right).
+$$
+
+With $s$ fixed, defining the **loss function** $\rho(x)=-\ln f(x)$, the MLE of $\mu$ is
+
+$$
+\hat{\mu}_{mle}=\underset{\mu}{\mathrm{argmin}}\sum_{i=1}^{N}\rho\!\left(\frac{r_{i}-\mu}{s}\right),
+$$
+
+characterized by the **estimating equation**
+
+$$
+\sum_{i=1}^{N}\psi\!\left(\frac{r_{i}-\mu}{s}\right)=0, \qquad \psi(x)=\frac{d}{dx}\rho(x)=-\frac{f^{\prime}(x)}{f(x)}.
+$$
+
+The function $\psi(x)$ is known as the **score function** in mathematical statistics.
+
+**Normal Distribution MLE.** With $f(x)=\tfrac{1}{\sqrt{2\pi}}\exp(-x^{2}/2)$:
+
+$$
+\rho_{mle,normal}(x)=\ln(2\pi)/2+x^{2}/2, \qquad \psi_{mle,normal}(x)=x.
+$$
+
+The estimating equation gives $\hat{\mu}_{mle,normal}=\bar{r}$ (the sample mean), and $\hat{s}_{mle,normal}$ is the sample standard deviation from the biased variance estimator.
+
+**Laplacian Distribution MLE.** With $f(x)=\tfrac{1}{2}\exp(-|x|)$:
+
+$$
+\rho_{mle,Laplacian}(x)=\mathrm{const}+|x|, \qquad \psi_{mle,Laplacian}(x)=\mathrm{sgn}(x).
+$$
+
+The location MLE is $\hat{\mu}_{mle,Laplacian}=\mathrm{MED}(\mathbf{r})$ (the sample median), and the scale MLE is the mean absolute deviation about the median.
+
+**t-Distribution MLE.** With standard $t$ pdf of known degrees of freedom $\nu$:
+
+$$
+\rho_{mle,tdist}(x)=\mathrm{const}+\frac{\nu+1}{2}\log\!\left(1+x^{2}/\nu\right), \qquad \psi_{mle,tdist}(x)=\frac{\nu+1}{\nu}\frac{x}{1+x^{2}/\nu}.
+$$
+
+This is a non-convex optimization requiring numerical methods. Note that $\psi_{mle,tdist}(x)$ is bounded and non-monotonic, decreasing to zero as $|x|\to\infty$.
 
 ::: {#fig-mle layout-ncol=1}
-![MLE $\rho$ and $\psi$ functions for location-scale models. Left: the $\rho$ loss function, which the MLE minimizes. Right: the corresponding $\psi$ score function. Under normality, $\psi(r) = r$ (linear); robust estimators use bounded $\psi$ functions to limit the influence of outliers.](1C__Users_tkpme_Dropbox_BookPCRA_Springer_Produ___B_Prob___Stat_for_PCRM_Plots_mleRhoPsiPlots.png){fig-alt="MLE rho and psi plots"}
+![MLE loss functions ($\rho$) and score functions ($\psi$) for Normal, Laplacian, and t-distributions. For normal distributions, $\rho$ is quadratic and $\psi(x)=x$ is linear and unbounded. For Laplacian distributions, $\rho$ grows linearly and $\psi$ is bounded. For t-distributions, $\rho$ grows logarithmically and $\psi$ is bounded and non-monotonic — redescending to zero for large $|x|$.](1C__Users_tkpme_Dropbox_BookPCRA_Springer_Produ___B_Prob___Stat_for_PCRM_Plots_mleRhoPsiPlots.png){fig-alt="MLE rho and psi plots"}
 
 MLE $\rho$ (loss) and $\psi$ (score) functions for location-scale estimation.
 :::
+
+The key observation: as tail fatness increases (normal $\to$ Laplacian $\to$ t), the $\rho$ function grows more slowly and $\psi$ transitions from unbounded to bounded. This motivates robust estimators that use bounded $\psi$ functions to limit the influence of outliers.
+
+### Regression Model MLEs
+
+For the cross-section regression model $r_{i}=\mathbf{b}_{i}^{\prime}\mathbf{f}+\varepsilon_{i}$ with i.i.d. scale-family errors, the log-likelihood is
+
+$$
+l(\mathbf{f},s)=-N\ln(s)+\sum_{i=1}^{N}\ln p_{0}\!\left(\frac{r_{i}-\mathbf{b}_{i}^{\prime}\mathbf{f}}{s}\right),
+$$
+
+and treating $s$ as known, the MLE is
+
+$$
+\hat{\mathbf{f}}_{mle}=\underset{\mathbf{f}}{\mathrm{argmin}}\sum_{i=1}^{N}\rho\!\left(\frac{r_{i}-\mathbf{b}_{i}^{\prime}\mathbf{f}}{s}\right).
+$$
+
+- **Normal errors**: yields the Least Squares estimator.
+- **Laplacian errors**: yields the Least Absolute Deviation (LAD/L1) estimator.
+- **t-distribution errors**: yields a non-convex optimization with bounded $\psi$; a regression M-estimator is best viewed as an outlier-resistant generalization of these regression MLE equations.
+
+For the normal distribution, $\hat{s}_{mle,normal}$ is the square root of the sample average of squared residuals; for Laplacian, $\hat{s}_{mle,Laplacian}$ is the sample average of absolute residuals.
+
+### Covariance Matrix MLEs
+
+The sample covariance matrix is the MLE when return vectors are multivariate normal. MLEs for non-normal multivariate elliptical distributions are discussed in the Cross-Sectional Factor Models chapter.
 
 ---
 
 ## B.9 — Useful Inequalities
 
+**Markov's Inequality.** For any non-negative random variable $X$ and positive constant $a$:
+
+$$
+P(X\geqslant a)\leqslant\frac{\mathrm{E}[X]}{a}.
+$$
+
+**Moment Bound.** For non-negative $X$ and positive constants $a$ and $r$:
+
+$$
+P(X\geqslant a)\leqslant\frac{\mathrm{E}[X^{r}]}{a^{r}}, \qquad P(X\geqslant a)\leqslant\underset{r>0}{\inf}\frac{\mathrm{E}[X^{r}]}{a^{r}}.
+$$
+
+Philips and Nelson (1995) show the Moment Bound is tighter than Chernoff's Bound for positive tail probabilities.
+
+**Chebyshev's Inequality.** For a random variable $X$ with mean $\mu$ and variance $\sigma^{2}$, and positive constant $b$:
+
+$$
+P(|X-\mu|\geqslant b)\leqslant\frac{\sigma^{2}}{b^{2}}.
+$$
+
+**Chernoff's Bound.** The tightest general-purpose inequality for random variables on the entire real line:
+
+$$
+P(X\geqslant a)\leqslant\underset{\theta>0}{\inf}\frac{\mathrm{E}(\exp(\theta X))}{\exp(\theta a)}, \qquad P(X\leqslant a)\leqslant\underset{\theta<0}{\inf}\frac{\mathrm{E}(\exp(\theta X))}{\exp(\theta a)}.
+$$
+
+**Jensen's Inequality.** For a convex function $g$ and random variable $X$:
+
+$$
+g(\mathrm{E}[X])\leqslant\mathrm{E}[g(X)].
+$$
+
+For strictly convex $g$ the inequality is strict; for concave $g$ the inequalities are reversed.
+
 ---
 
-## B.10 — Limit Theorems
+## B.10 — Limit Theorems for Random Variables and Distributions
 
-::: {.callout-tip appearance="minimal"}
-**Topics covered:**
+### Convergence in Probability
 
-- Convergence of random variables: in probability, almost surely, in $L^p$
-- Convergence in distribution
-- Slutsky's Theorem
-- Central Limit Theorem (CLT)
-:::
+An infinite sequence $X_{1},X_{2},\ldots$ **converges in probability** to $X$ if for every $\epsilon>0$:
+
+$$
+\lim_{n\to\infty}P(|X_{n}-X|<\epsilon)=1, \qquad \text{written } X_{n}\overset{p}{\to}X.
+$$
+
+**Weak Law of Large Numbers.** If $X_{1},X_{2},\ldots$ are i.i.d. with finite mean $\mu$, then $\bar{X}_{n}\overset{p}{\to}\mu$.
+
+### Convergence in Distribution
+
+The sequence $X_{1},X_{2},\ldots$ **converges in distribution** to $X$ if $\lim_{n\to\infty}F_{n}(x)=F(x)$ for all continuity points $x$ of $F$, written $X_{n}\overset{d}{\to}X$.
+
+### Slutsky's Theorem
+
+If $X_{n}\overset{d}{\to}X$ and $Y_{n}\overset{p}{\to}c$ (a constant), then:
+
+$$
+X_{n}+Y_{n}\overset{d}{\to}X+c, \qquad X_{n}Y_{n}\overset{d}{\to}cX, \qquad X_{n}/Y_{n}\overset{d}{\to}X/c\ (c\neq0).
+$$
+
+### Central Limit Theorem (CLT)
+
+Let $X_{1},X_{2},\ldots$ be i.i.d. with finite mean $\mu$ and variance $\sigma^{2}$. Then
+
+$$
+\sqrt{n}(\bar{X}_{n}-\mu)\overset{d}{\to}N(0,\sigma^{2}), \qquad \text{equivalently}\quad \sqrt{n}\,\frac{\bar{X}-\mu}{\sigma}\overset{d}{\to}N(0,1).
+$$
 
 ---
 
-## B.11 — Estimator Asymptotic Results
+## B.11 — Estimator Asymptotic Results and Their Use
 
-::: {.callout-tip appearance="minimal"}
-**Topics covered:**
+### Consistent Estimators
 
-- Consistent estimators
-- Estimator asymptotic variance
-:::
+A **consistent** estimator $\hat{\theta}_{n}$ converges in probability to the true parameter value:
+
+$$
+\hat{\theta}_{n}\overset{p}{\to}\theta.
+$$
+
+Most estimators commonly used in practice are consistent: the sample mean for $\mu$, the sample variance estimators for $\sigma^{2}$, the sample standard deviation for $\sigma$, etc.
+
+### Estimator Asymptotic Variance
+
+For estimators whose variance converges to zero at rate $1/n$, the **asymptotic variance** $V(\theta;\hat{\theta}_{n})$ is defined via
+
+$$
+\sqrt{n}(\hat{\theta}_{n}-\theta)\overset{d}{\to}N(0,\,V(\theta;\hat{\theta}_{n})).
+$$
+
+**Example: Asymptotic Variance of the Sample Variance.** If i.i.d. returns $r_{i}$ have a finite fourth moment, then
+
+$$
+V(\hat{\sigma}_{n}^{2})=\mathrm{var}[(r_{1}-\mu)^{2}]=\mu_{4}-\sigma^{4}
+$$
+
+where $\mu_{4}=\mathrm{E}[(r-\mu)^{4}]$ is the fourth central moment.
+
+*Proof sketch:* With mean zero (WLOG), $\tfrac{1}{n}\sum_{i}(r_{i}-\bar{r})^{2}=\tfrac{1}{n}\sum r_{i}^{2}-\bar{r}^{2}$, so $\sqrt{n}(\hat{\sigma}_{n}^{2}-\sigma^{2})=\sqrt{n}(\tfrac{1}{n}\sum r_{i}^{2}-\sigma^{2})-\sqrt{n}\bar{r}^{2}$. The first term converges to $N(0,a)$ by the CLT, and the second term equals $\bar{r}\cdot\sqrt{n}\bar{r}\to0$ by Slutsky's Theorem.
 
 ---
 
 ## B.12 — Delta Methods
 
-::: {.callout-tip appearance="minimal"}
-**Topics covered:**
+### Univariate Delta Method
 
-- Univariate delta method: $\sqrt{n}(g(\hat\theta) - g(\theta)) \xrightarrow{d} \mathcal{N}(0,\, [g^\prime(\theta)]^2 \sigma^2)$
-- Bivariate delta method
-:::
+Given the asymptotic variance $V(\theta)=V(\theta;\hat{\theta}_{n})$ and a transformation $g$ with continuous first derivative $g^{\prime}$, the **univariate delta method** gives
+
+$$
+V(\theta;\,g(\hat{\theta}_{n}))=[g^{\prime}(\theta)]^{2}V(\theta).
+$$
+
+This follows from the Mean Value Theorem: $\sqrt{n}(g(\hat{\theta}_{n})-g(\theta))=g^{\prime}(\theta^{*})\cdot\sqrt{n}(\hat{\theta}_{n}-\theta)$ where $\theta^{*}$ lies between $\theta$ and $\hat{\theta}_{n}$; as $n\to\infty$, $\theta^{*}\overset{p}{\to}\theta$ and Slutsky's Theorem gives the result.
+
+**Example: Volatility Estimator Asymptotic Variance.** Since $\sigma=\sqrt{\sigma^{2}}$, we have $g(t)=t^{1/2}$ and $[g^{\prime}(\sigma^{2})]^{2}=1/(4\sigma^{2})$, giving
+
+$$
+V(\sigma;\hat{\sigma}_{n})=\frac{\mu_{4}-\sigma^{4}}{4\sigma^{2}}.
+$$
+
+### The Bivariate Delta Method
+
+For a scalar-valued transformation $g(\boldsymbol{\theta})=g(\theta_{1},\theta_{2})$ of a bivariate estimator $\hat{\boldsymbol{\theta}}=(\hat{\theta}_{1},\hat{\theta}_{2})^{\prime}$, the asymptotic variance of $g(\hat{\boldsymbol{\theta}})$ is
+
+$$
+V_{\hat{g}}=\nabla g(\boldsymbol{\theta})^{\prime}\,\mathbf{V}_{\boldsymbol{\theta}}\,\nabla g(\boldsymbol{\theta}),
+$$
+
+where $\mathbf{V}_{\boldsymbol{\theta}}$ is the $2\times2$ asymptotic covariance matrix of $\hat{\boldsymbol{\theta}}$.
+
+**Example: Sharpe Ratio Asymptotic Variance.** The Sharpe ratio estimator is $\widehat{SR}=\hat{\mu}_{e}/\hat{\sigma}$, so $g(\boldsymbol{\theta})=\theta_{1}/\sqrt{\theta_{2}}$ with $\theta_{1}=\mu_{e}$, $\theta_{2}=\sigma^{2}$. Using
+
+$$
+\mathbf{V}_{\boldsymbol{\theta}}=\begin{pmatrix}\sigma^{2} & \mu_{3}\\ \mu_{3} & \mu_{4}-\sigma^{4}\end{pmatrix}, \qquad \nabla g(\boldsymbol{\theta})=\left(\frac{1}{\sigma},\ -\frac{\mu_{e}}{2\sigma^{3}}\right)^{\prime},
+$$
+
+the bivariate delta method gives
+
+$$
+V_{\widehat{SR}}=1-K_{3}\cdot SR+\frac{K_{4}+2}{4}\,SR^{2}
+$$
+
+where $K_{3}=\mu_{3}/\sigma^{3}$ is the coefficient of skewness and $K_{4}=\mu_{4}/\sigma^{4}-3$ is excess kurtosis. For normally distributed returns ($K_{3}=K_{4}=0$) this reduces to
+
+$$
+\mathrm{var}_{\infty}(SR_{n})=1+\tfrac{1}{2}SR^{2},
+$$
+
+the result of Lo (2002).
 
 ---
 
 ## B.13 — Estimator Standard Errors
 
+For an estimator $\hat{\theta}_{n}$ with asymptotic variance $V(\theta)$, an approximate standard error is
+
+$$
+SE(\hat{\theta}_{n})\approx\frac{1}{\sqrt{n}}V^{1/2}(\hat{\theta}_{n}),
+$$
+
+where the unknown $\theta$ is replaced by its estimate $\hat{\theta}_{n}$.
+
+**Example: Volatility Estimator Standard Error.**
+
+$$
+SE(\hat{\sigma}_{vol,n})=\frac{1}{\sqrt{n}}\left(\frac{\hat{\mu}_{4,n}-\hat{\sigma}_{vol,n}^{4}}{4\hat{\sigma}_{vol,n}^{2}}\right)^{1/2}, \qquad \hat{\mu}_{4,n}=\frac{1}{n}\sum_{t=1}^{n}(r_{t}-\bar{r})^{4}.
+$$
+
 ---
 
 ## B.14 — Fisher Information and MLE Asymptotic Optimality
 
+Suppose $(r_{1},\ldots,r_{n})$ are i.i.d. with pdf $f(r;\theta)$. With $l(\theta;r)=\ln f(r;\theta)$, the **Fisher Information** for estimating $\theta$ is
+
 $$
-\mathcal{I}(\theta) = \mathrm{E}\!\left[\left(\frac{\partial}{\partial\theta}\log f(X;\theta)\right)^{\!2}\right]
+\mathcal{I}(\theta)=\mathrm{E}\!\left[\left(\frac{\partial l(\theta;r)}{\partial\theta}\right)^{2}\right].
 $$
 
-The Cramér–Rao lower bound states that no unbiased estimator can have variance below $1/\mathcal{I}(\theta)$. The MLE achieves this bound asymptotically.
+If $\hat{\theta}_{mle,n}$ is a sequence of consistent MLEs, then
+
+$$
+\sqrt{n}(\hat{\theta}_{mle,n}-\theta)\overset{d}{\to}N(0,\,\mathcal{I}^{-1}(\theta)).
+$$
+
+Furthermore, any other consistent estimator $\hat{\theta}_{n}$ satisfies the **information inequality** (Cramér-Rao lower bound):
+
+$$
+V(\hat{\theta}_{n};\theta)\geqslant\mathcal{I}^{-1}(\theta).
+$$
+
+The MLE achieves this bound asymptotically — it is asymptotically optimal among all consistent estimators.
 
 ---
 
 ## B.15 — Generalized Inverse of Distribution Functions
 
-::: {.callout-note}
-## Reading Guide
+For a distribution function $F$ with "flat spots" (e.g., an empirical distribution function), the ordinary inverse does not exist. The **generalized inverse** (left-continuous quantile function) is defined as
 
-Sections B.5 (Least Squares) and B.8 (MLEs) are the most heavily used in the main text. Readers new to asymptotic statistics should read B.10–B.12 carefully, as they underpin the large-sample properties of both classical and robust estimators throughout PCRA.
-:::
+$$
+F^{\leftarrow}(p)=\inf\{r:\,p\leqslant F(r)\},\quad 0<p\leqslant1.
+$$
+
+### Application to Empirical Distribution Functions
+
+For the EDF $F_{n}$ of a sample $r_{1},\ldots,r_{n}$ with no ties and ordered values $r_{(1)}<r_{(2)}<\cdots<r_{(n)}$:
+
+$$
+F_{n}^{\leftarrow}(p)=r_{(i)},\quad p\in\left((i-1)/n,\ i/n\right],\quad i=1,2,\ldots,n.
+$$
+
+The $p$-quantile of the EDF is $q_{F_{n}}(p)=r_{(\lceil np\rceil)}$ where $\lceil x\rceil$ is the ceiling function. For example, with $n=50$ and $p=0.01$: $q_{F_{50}}(0.01)=r_{(\lceil 0.5\rceil)}=r_{(1)}$.
+
+For more careful treatments, one also considers the **right generalized inverse**
+
+$$
+F^{\rightarrow}(p)=\inf\{r:\,p<F(r)\},\quad 0<p\leqslant1,
+$$
+
+which is used by Acerbi and Tasche (2002) to define empirical VaR based on the right generalized inverse (with ceiling defined as the smallest integer strictly greater than $x$).

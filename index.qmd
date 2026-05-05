@@ -4,117 +4,104 @@ page-layout: full
 toc: false
 ---
 
-```{=html}
-<div class="px-4 py-5 my-4 text-center bg-dark text-white rounded-3">
-  <p class="fs-6 fw-semibold text-uppercase tracking-wide mb-2" style="letter-spacing:0.15em; color:#adb5bd;">
-    Online Appendices &nbsp;·&nbsp; Springer 2026
-  </p>
-  <h1 class="display-5 fw-bold mb-3">
-    Portfolio Construction<br>and Risk Analysis
-  </h1>
-  <p class="col-lg-7 mx-auto lead mb-4" style="color:#ced4da;">
-    A rigorous treatment of quantitative methods for investment management —
-    from classical portfolio theory to modern statistical methodology.
-  </p>
-  <p class="mb-0" style="color:#adb5bd; font-size:0.95rem;">
-    R. Douglas Martin &ensp;&middot;&ensp;
-    Thomas K. Philips &ensp;&middot;&ensp;
-    Bernd Scherer &ensp;&middot;&ensp;
-    Kirk Li
-  </p>
-</div>
-```
+::: {.hero-block}
+# Portfolio Construction and Risk Analysis
 
-::: {.callout-important appearance="minimal"}
+::: {.subtitle}
+A rigorous treatment of quantitative methods for investment management
+:::
+
+::: {.authors}
+R. Douglas Martin &nbsp;·&nbsp; Thomas K. Philips &nbsp;·&nbsp; Bernd Scherer &nbsp;·&nbsp; Kirk Li
+:::
+
+::: {.publisher-badge}
+Springer &nbsp;|&nbsp; Planned Publication: 2026
+:::
+:::
+
+::: {.copyright-notice}
 **Copyright Notice.** Material on this site is planned for publication in 2026 by R. Douglas Martin, Thomas K. Philips, Bernd Scherer, and Kirk Li. All rights reserved. © Copyright 2025.
 :::
 
 ## About the Book
 
-*Portfolio Construction and Risk Analysis* (PCRA) provides a comprehensive and rigorous treatment of the quantitative foundations of modern investment management. The book develops the mathematical, statistical, and computational tools needed to construct, evaluate, and risk-manage portfolios in a principled way.
+*Portfolio Construction and Risk Analysis* (PCRA) provides a comprehensive and rigorous account of the quantitative foundations of modern portfolio management. The book develops the mathematical, statistical, and computational tools needed to construct, evaluate, and risk-manage investment portfolios in a principled way.
 
-The text integrates classical theory — mean-variance optimization, the Capital Asset Pricing Model, the Arbitrage Pricing Theory — with modern statistical methodology including robust estimation, regularized regression, and machine learning.
+The text integrates classical theory — mean-variance optimization, the Capital Asset Pricing Model, the Arbitrage Pricing Theory — with modern statistical methodology including robust estimation, regularized regression, and machine learning. Throughout, the authors emphasize practical implementation alongside theoretical justification.
 
 ## Online Appendices
 
-This site hosts the five technical appendices to PCRA. Each appendix provides self-contained background material with inline figures and a full PDF download.
+This site hosts the five technical appendices to PCRA. Each appendix provides self-contained background material that underpins the methods and results developed in the main text. Full PDF downloads are available on each appendix page.
 
-```{=html}
-<div class="row g-4 mt-1">
+::: {.appendix-grid}
 
-  <div class="col-md-6 col-lg-4">
-    <div class="card h-100 shadow-sm">
-      <div class="card-body">
-        <p class="text-muted small fw-bold text-uppercase mb-1" style="letter-spacing:0.08em;">Appendix A</p>
-        <h5 class="card-title">Mathematical Tools</h5>
-        <p class="card-text text-muted">Vectors, matrix algebra, eigendecompositions, convex analysis, and constrained optimization.</p>
-        <p class="mb-0"><span class="badge bg-secondary me-1">Linear Algebra</span><span class="badge bg-secondary me-1">SVD</span><span class="badge bg-secondary">Optimization</span></p>
-      </div>
-      <div class="card-footer bg-transparent border-top-0">
-        <a href="appendix-a.html" class="btn btn-outline-primary btn-sm">Read &rarr;</a>
-      </div>
-    </div>
-  </div>
+::: {.appendix-card}
+::: {.label}
+Appendix A
+:::
+### Mathematical Tools for PCRA
+Vectors and vector spaces, matrix algebra, eigendecompositions, convex analysis, and constrained optimization — the essential mathematical infrastructure for portfolio mathematics.
 
-  <div class="col-md-6 col-lg-4">
-    <div class="card h-100 shadow-sm">
-      <div class="card-body">
-        <p class="text-muted small fw-bold text-uppercase mb-1" style="letter-spacing:0.08em;">Appendix B</p>
-        <h5 class="card-title">Probability &amp; Statistics</h5>
-        <p class="card-text text-muted">Location-scale distributions, OLS/WLS/GLS, MLE, asymptotic theory, and the delta method.</p>
-        <p class="mb-0"><span class="badge bg-secondary me-1">Least Squares</span><span class="badge bg-secondary me-1">MLE</span><span class="badge bg-secondary">CLT</span></p>
-      </div>
-      <div class="card-footer bg-transparent border-top-0">
-        <a href="appendix-b.html" class="btn btn-outline-primary btn-sm">Read &rarr;</a>
-      </div>
-    </div>
-  </div>
+[Read Appendix A](appendix-a.qmd){.btn-appendix}
+:::
 
-  <div class="col-md-6 col-lg-4">
-    <div class="card h-100 shadow-sm">
-      <div class="card-body">
-        <p class="text-muted small fw-bold text-uppercase mb-1" style="letter-spacing:0.08em;">Appendix C</p>
-        <h5 class="card-title">Utility Theory</h5>
-        <p class="card-text text-muted">VNM axioms, concave utility, risk aversion, certainty equivalents, and the link to MVO.</p>
-        <p class="mb-0"><span class="badge bg-secondary me-1">CARA/CRRA</span><span class="badge bg-secondary me-1">EUM</span><span class="badge bg-secondary">Risk Aversion</span></p>
-      </div>
-      <div class="card-footer bg-transparent border-top-0">
-        <a href="appendix-c.html" class="btn btn-outline-primary btn-sm">Read &rarr;</a>
-      </div>
-    </div>
-  </div>
+::: {.appendix-card}
+::: {.label}
+Appendix B
+:::
+### Probability & Statistics for PCRA
+Location-scale distributions, least squares (OLS, WLS, GLS), maximum likelihood estimation, asymptotic theory, delta methods, and the Fisher information framework.
 
-  <div class="col-md-6 col-lg-4">
-    <div class="card h-100 shadow-sm">
-      <div class="card-body">
-        <p class="text-muted small fw-bold text-uppercase mb-1" style="letter-spacing:0.08em;">Appendix D</p>
-        <h5 class="card-title">Portfolio Theory</h5>
-        <p class="card-text text-muted">Efficient frontier math, CAPM and APT proofs, zero-beta portfolios, robust estimation.</p>
-        <p class="mb-0"><span class="badge bg-secondary me-1">CAPM</span><span class="badge bg-secondary me-1">APT</span><span class="badge bg-secondary">Zero-Beta</span></p>
-      </div>
-      <div class="card-footer bg-transparent border-top-0">
-        <a href="appendix-d.html" class="btn btn-outline-primary btn-sm">Read &rarr;</a>
-      </div>
-    </div>
-  </div>
+[Read Appendix B](appendix-b.qmd){.btn-appendix}
+:::
 
-  <div class="col-md-6 col-lg-4">
-    <div class="card h-100 shadow-sm">
-      <div class="card-body">
-        <p class="text-muted small fw-bold text-uppercase mb-1" style="letter-spacing:0.08em;">Appendix E</p>
-        <h5 class="card-title">Machine Learning</h5>
-        <p class="card-text text-muted">Ridge, Lasso, Elastic Net, cross-validation, robust ML, logistic regression, projection pursuit.</p>
-        <p class="mb-0"><span class="badge bg-secondary me-1">Regularization</span><span class="badge bg-secondary me-1">Robust ML</span><span class="badge bg-secondary">PPR</span></p>
-      </div>
-      <div class="card-footer bg-transparent border-top-0">
-        <a href="appendix-e.html" class="btn btn-outline-primary btn-sm">Read &rarr;</a>
-      </div>
-    </div>
-  </div>
+::: {.appendix-card}
+::: {.label}
+Appendix C
+:::
+### Utility Theory
+Expected utility maximization, concave utility and risk aversion, certainty equivalents, absolute and relative risk aversion, and the relationship between expected utility and mean-variance optimization.
 
-</div>
-```
+[Read Appendix C](appendix-c.qmd){.btn-appendix}
+:::
+
+::: {.appendix-card}
+::: {.label}
+Appendix D
+:::
+### Portfolio Theory
+Minimum-variance frontier mathematics, the tangent portfolio, CAPM proofs, zero-beta portfolios, APT derivation, and robust estimation details.
+
+[Read Appendix D](appendix-d.qmd){.btn-appendix}
+:::
+
+::: {.appendix-card}
+::: {.label}
+Appendix E
+:::
+### Machine Learning
+Supervised learning, regularization (Ridge, Lasso, Elastic Net), cross-validation, robust regularized regression, logistic regression, and projection pursuit / neural networks.
+
+[Read Appendix E](appendix-e.qmd){.btn-appendix}
+:::
+
+:::
+
+---
+
+## How to Use This Site
+
+Each appendix page provides:
+
+- A structured outline of topics covered
+- Key figures from the appendix rendered inline
+- A downloadable PDF of the full appendix
+
+The appendices are designed to be read alongside the main chapters of PCRA, or independently as reference material. Cross-references to specific sections of the main text appear throughout.
 
 ## Citation
+
+If you use material from these appendices in your own work, please cite the book:
 
 > Martin, R. D., Philips, T. K., Scherer, B., and Li, K. (2026). *Portfolio Construction and Risk Analysis*. Springer. (In press.)
