@@ -1,6 +1,6 @@
 project:
   type: website
-  output-dir: _site
+  output-dir: docs
 
 website:
   title: "Portfolio Construction and Risk Analysis"
@@ -14,6 +14,24 @@ website:
     left:
       - text: "Home"
         href: index.qmd
+      - text: "Preface"
+        href: preface.qmd
+      - text: "Vignettes"
+        menu:
+          - text: "1 — PCRA Package and Data Overview"
+            href: vignette-1.qmd
+          - text: "2 — CRSP Stocks and SPGMI Factors in PCRA"
+            href: vignette-2.qmd
+          - text: "3 — PCRA Reproducibility"
+            href: vignette-3.qmd
+          - text: "---"
+          - text: "Reference Manual"
+            href: reference-manual.qmd
+          - text: "---"
+          - text: "All Vignettes on GitHub"
+            href: "https://github.com/robustport/PCRA/tree/main/vignettes"
+      - text: "Demo Code"
+        href: demo-code.qmd
       - text: "Appendices"
         menu:
           - text: "A — Mathematical Tools"

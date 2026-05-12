@@ -1,0 +1,76 @@
+---
+title: "Demo Code"
+---
+
+The PCRA book has a distinctive **reproducibility** theme: most figures and tables in Chapters 2–6 (and several later chapters) are reproducible using R scripts provided in the `PCRA` R package. These scripts allow students and instructors to replicate book results and experiment with different portfolio strategies, time periods, stock groups, and optimization parameters.
+
+::: {.callout-note appearance="minimal"}
+**All demo scripts are also on GitHub:** [github.com/robustport/PCRA/tree/main/demo](https://github.com/robustport/PCRA/tree/main/demo){target="_blank"}
+:::
+
+## Chapter Demo Scripts
+
+Download any script directly or view it on GitHub. Each script reproduces all figures and tables for its chapter.
+
+| Chapter | Topic | Download | GitHub |
+|---------|-------|----------|--------|
+| Ch. 1 | Introduction to Portfolio Management | [Download R script](demos/Ch1_Introduction_Demo.R){target="_blank"} | [View on GitHub](https://github.com/robustport/PCRA/tree/main/demo){target="_blank"} |
+| Ch. 2 | Foundations | [Download R script](demos/Ch2_Foundations_Demo.R){target="_blank"} | [View on GitHub](https://github.com/robustport/PCRA/tree/main/demo){target="_blank"} |
+| Ch. 3 | Modeling Asset Returns | [Download R script](demos/Ch3_ModelingAssetReturns_Demo.R){target="_blank"} | [View on GitHub](https://github.com/robustport/PCRA/tree/main/demo){target="_blank"} |
+| Ch. 4 | Covariance Matrices | [Download R script](demos/Ch4_CovarianceMatrices_Demo.R){target="_blank"} | [View on GitHub](https://github.com/robustport/PCRA/tree/main/demo){target="_blank"} |
+| Ch. 5 | Portfolio Constraints and Penalties | [Download R script](demos/Ch5_PortfolioConstraintsAndPenalties_Demo.R){target="_blank"} | [View on GitHub](https://github.com/robustport/PCRA/tree/main/demo){target="_blank"} |
+| Ch. 6 | Time Series Models | [Download R script](demos/Ch6_TimeSeriesModels_Demo.R){target="_blank"} | [View on GitHub](https://github.com/robustport/PCRA/tree/main/demo){target="_blank"} |
+
+## How to Use the Demo Scripts
+
+### Step 1 — Install the PCRA package
+
+```r
+install.packages("PCRA")
+```
+
+Or install the development version (includes daily/weekly CRSP data):
+
+```r
+library(devtools)
+devtools::install_github("robustport/PCRA")
+```
+
+### Step 2 — Download and open a script
+
+Download the R script from the table above and open it in RStudio.
+
+### Step 3 — Set your working directory
+
+Each script uses `rstudioapi` to automatically set the working directory. If it isn't already at the top of the script, add these two lines:
+
+```r
+library(rstudioapi)
+setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
+```
+
+### Step 4 — Install required packages
+
+Each script begins with instructions for installing and loading the required packages. Follow those instructions before running anything else. The packages collectively needed across all scripts are:
+
+```r
+install.packages(c("PCRA", "data.table", "xts", "zoo",
+                   "facmodTS", "facmodCS",
+                   "PerformanceAnalytics", "PortfolioAnalytics",
+                   "RobStatTM", "robustGarch", "rstudioapi"))
+```
+
+### Step 5 — Run the script
+
+- **Run all:** Highlight everything and click **Run**, or click the **Source** button
+- **Run selectively:** Each figure and table in the book is labeled by a comment in the script — search for the figure number and run just that block
+
+::: {.callout-warning appearance="minimal"}
+Some scripts take several minutes to run in full. Running targeted sections is often more practical.
+:::
+
+## Also on GitHub
+
+The PCRA GitHub repository contains additional demo scripts beyond the chapter scripts listed above, including `IntroductionCRSPstocksAndSPGMIfactors` (code for Vignette 2) and `RobustStatisticsForPortfoliosJPM2023` (reproduces figures from the JPM 2023 paper).
+
+Browse all demos at: [github.com/robustport/PCRA/tree/main/demo](https://github.com/robustport/PCRA/tree/main/demo){target="_blank"}

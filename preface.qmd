@@ -1,0 +1,13 @@
+---
+title: "Preface"
+---
+
+*Robust Portfolio Construction and Risk Analysis* (RPCRA) — R. Douglas Martin, Thomas K. Philips, Bernd Scherer, and Kirk Li. Springer, planned publication 2026.
+
+::: {.callout-note appearance="minimal"}
+[Download Preface PDF](pdfs/preface.pdf){target="_blank" .btn .btn-outline-primary}
+:::
+
+```{=html}
+<iframe src="pdfs/preface.pdf" width="100%" height="950px" style="border: 1px solid #dee2e6; border-radius: 4px;"></iframe>
+```
